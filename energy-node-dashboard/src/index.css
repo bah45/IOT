@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #root { height: 100%; }
+
+body {
+  @apply bg-base-950 text-slate-200 font-sans antialiased;
+  background-image:
+    radial-gradient(circle at 20% 0%, rgba(34,211,192,0.06), transparent 40%),
+    radial-gradient(circle at 80% 100%, rgba(255,176,32,0.05), transparent 40%);
+}
+
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #2c3745; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #3a4657; }
+
+.tabular { font-variant-numeric: tabular-nums; }
+
+.card {
+  @apply bg-base-900/80 border border-base-700/60 rounded-lg backdrop-blur-sm;
+}
+
+.data-value {
+  @apply font-mono tabular text-slate-100;
+}
+
+.waveform-track {
+  position: relative;
+  overflow: hidden;
+}
+.waveform-track::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; height: 100%; width: 40%;
+  background: linear-gradient(90deg, transparent, rgba(34,211,192,0.15), transparent);
+  animation: scanline 4s linear infinite;
+}
